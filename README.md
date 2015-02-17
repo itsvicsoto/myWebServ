@@ -1,4 +1,4 @@
-express-boilerplate
+Node.js AngularJS
 ======================
 
-ExpressJS Boilerplate for Starters
+...
