@@ -8,6 +8,7 @@
   var bodyParser = require('body-parser');
   var cookieParser = require('cookie-parser');
   var sql = require('mssql');
+  var routes = require('./webroutes/webserv');
 
   /* 
     Nung ginawa ko 'to instead of express.static(etc).. gumana yung core.js
@@ -15,8 +16,6 @@
     app.use('/', routes);
   */
 
-  var routes = require('./webroutes/webserv');
-  app.use('/', routes);
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({'extended':'true'}));
@@ -58,6 +57,8 @@
   });
 
 
+  app.use('/', routes);
+  
   // Express Server Config
   app.set('port', process.env.PORT || 3000);
 

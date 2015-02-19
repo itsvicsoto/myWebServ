@@ -39,9 +39,10 @@
     Then use it to make sql Request
     	//var request = new sql.Request(conn);
     */
-    
+
+    var conn = req.connection;
     var info = req.body;   
-    var request = new sql.Request(connection);
+    var request = new sql.Request(conn);
 	
 		searchUserName(info.user, info.pw);
 

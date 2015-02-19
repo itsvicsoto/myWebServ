@@ -15,6 +15,7 @@ app.controller('LoginCtrl', function($scope, $http){
 			.success(function(data) {
 				if(data.status == 'proceed'){
 						$scope.loginResult = 'User Found!';
+						console.log(data);
 					}
 			})
 			.error(function(data){
