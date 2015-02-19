@@ -1,6 +1,6 @@
 
-module.exports = {
-  app: 'TORO GrooveBox',
-  port: 5000,
-  root: '/../application/'
-}
+// module.exports = {
+//   app: 'TEE MD',
+//   port: 5000,
+//   root: '/../myWebserv/'
+// }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>{{title}}</title>
+	<title id="title"></title>
 	<link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css">
 	<script type="text/javascript" src="/angular/angular.js"></script>
 	<script type="text/javascript" src="/core.js"></script>
@@ -23,20 +23,23 @@
 				
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<h3>Result: Hi</h3>
+				<h3 ng-bind="loginResult"></h3>
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row" ng-controller="ProductCtrl">
 			<div class="col-xs-6 col-md-4">
 				<h1>Check Code</h1>
 
-				<input type="text" placeholder="place value">
-				<button type="submit" class="btn btn-default">Search</button>
+				<input type="text" placeholder="place value" ng-model="productCode">
+				<button class="btn btn-default"
+						ng-click="checkCode(productCode)">
+						Search
+				</button>
 				
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<h3>Result: Hi</h3>
+				<h3 ng-bind="productNumber"></h3>
 			</div>
 		</div>
 
