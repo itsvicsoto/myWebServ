@@ -10,17 +10,11 @@
   var sql = require('mssql');
   var routes = require('./webroutes/webserv');
 
-  /* 
-    Nung ginawa ko 'to instead of express.static(etc).. gumana yung core.js
-    var routes = require('./webroutes/webserv');
-    app.use('/', routes);
-  */
-
   app.use(logger('dev'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({'extended':'true'}));
   app.use(cookieParser());
-  app.use(express.static(__dirname + '/node_modules'));
+  app.use(express.static(__dirname + '/webcli/assets'));
   app.use(express.static(__dirname + '/webcli'));
   
 
@@ -31,7 +25,6 @@
   next();
   });
 
-  /* This config won't work if used in webserv.js */
   //Connect SQL Database
   app.use(function(req, res, next) {
 
@@ -58,7 +51,7 @@
 
 
   app.use('/', routes);
-  
+
   // Express Server Config
   app.set('port', process.env.PORT || 3000);
 
@@ -72,7 +65,7 @@
   // Redirect all requests to the application root's index.html
   // so AngularJS could handle routes unless specified in this file
   app.get('*', function (req, res) {
-    res.sendFile(__dirname + '/webcli/ndex.html');
+    res.sendFile(__dirname + '/webcli/index.html');
   });
 
    // Express Server Config

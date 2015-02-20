@@ -27,11 +27,11 @@
 			</div>
 		</div>
 
-		<div class="row" ng-controller="ProductCtrl">
+		<div class="row" ng-controller="ProductCtrl as product">
 			<div class="col-xs-6 col-md-4">
 				<h1>Check Code</h1>
 
-				<input type="text" placeholder="place value" ng-model="productCode">
+				<input 	type="text" placeholder="place value" ng-model="productCode">
 				<button class="btn btn-default"
 						ng-click="checkCode(productCode)">
 						Search
@@ -39,7 +39,7 @@
 				
 			</div>
 			<div class="col-xs-6 col-md-4">
-				<h3 ng-bind="productNumber"></h3>
+				<h3 ng-bind="productRes"></h3>
 			</div>
 		</div>
 

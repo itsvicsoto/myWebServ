@@ -6,6 +6,9 @@
 var app = angular.module('testApp', [])
 
 app.controller('LoginCtrl', function($scope, $http){
+	$scope.userName = 'carlo.danan'
+	$scope.passWord = 'tee'
+
 	$scope.loginUser = function(user, pw) {
 		$http.post('/login', 
 			{
@@ -14,8 +17,10 @@ app.controller('LoginCtrl', function($scope, $http){
 			})
 			.success(function(data) {
 				if(data.status == 'proceed'){
-						$scope.loginResult = 'User Found!';
-						console.log(data);
+						if (data.content.length != 0)
+						{
+							$scope.loginResult = 'User Found';
+						}
 					}
 			})
 			.error(function(data){
@@ -25,15 +30,20 @@ app.controller('LoginCtrl', function($scope, $http){
 });
 
 app.controller('ProductCtrl', function($scope, $http){
+	$scope.productCode = 46075;
+
 	$scope.checkCode = function(productCode) {
-		$http.post('/codesubmit',
+	$http.post('/submit',
+		{
+			code: productCode
+		}).success(function(data) {
+			if (data.content.length != 0)
 			{
-				data: productCode
-			}).success(function(data) {
-				console.log(data)
-			}).error(function(data) {
-				console.log(data)
-			})
+				$scope.productRes = data.content[0].PartId;
+			}
+		}).error(function(data) {
+			console.log('err: ' + data);
+		})
 	}
 });
 
