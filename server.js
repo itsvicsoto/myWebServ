@@ -15,6 +15,9 @@
   app.use(bodyParser.urlencoded({'extended':'true'}));
   app.use(cookieParser());
   app.use(express.static(__dirname + '/webcli/assets'));
+  app.use(express.static(__dirname + '/webcli/scripts'));
+  app.use(express.static(__dirname + '/webcli/style'));
+  app.use(express.static(__dirname + '/webcli/filters'));
   app.use(express.static(__dirname + '/webcli'));
   
 

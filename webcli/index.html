@@ -5,8 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title id="title"></title>
 	<link rel="stylesheet" type="text/css" href="/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/style/style.css" rel="stylesheet">
+
 	<script type="text/javascript" src="/angular/angular.js"></script>
 	<script type="text/javascript" src="/core.js"></script>
+	<script type="text/javascript" src="/scripts/appServices.js"></script>
+	<script type="text/javascript" src="/scripts/filters/dataFilters.js"></script>
 </head>
 <body>
 	<div class="container">
@@ -42,6 +46,43 @@
 				<h3 ng-bind="productRes"></h3>
 			</div>
 		</div>
+
+		<div class="row" ng-controller="ProductCtrl as product">
+			<div class="col-xs-6 col-md-4">
+				<h1>Get Code Result</h1>
+
+				<button class="btn btn-default"
+						ng-click="checkCodeAgain()">
+						Display
+				</button>
+				
+			</div>
+			<div class="col-xs-6 col-md-4">
+				<h3 ng-bind="productRes1"></h3>
+			</div>
+		</div>	
+<!-- // -->
+		<div class="spacer"></div>
+<!-- // -->
+		<div class="row" ng-controller="ProductTblCtrl">
+			<button class="btn btn-default"
+					ng-click="dispTbl()">
+					Display Table
+			</button>
+			<div class="spacer"></div>
+			<div class="col-xs-6 col-md-4">
+				<table>
+					<tr>
+						<th ng-repeat="header in lists">{{header.index}}</th>
+					</tr>
+					<tr>
+						<td ng-repeat="source in dataStore">{{source.data}}</td>
+					</tr>
+				</table>
+				<h1>{{dateData | date: 'dd/MM/yyyy'}}</h1>
+			</div>
+
+		</div>	
 
 	</div>
 </body>

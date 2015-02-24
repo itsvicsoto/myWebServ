@@ -33,7 +33,6 @@
       function authUserName(err, record){
         if(!err){
           res.json({
-              status: 'proceed',
               content: record[0]
             });
           } else {
